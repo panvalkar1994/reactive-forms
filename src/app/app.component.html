@@ -16,7 +16,7 @@
     <div class="form-group">
       <label>Email</label>
       <input formControlName="email" type="email" class="form-control" [class.is-invalid]="email.invalid">
-      <small *ngIf="registrationForm.controls.email.errors?.required" class="text-danger">User Name is required</small>
+      <small *ngIf="registrationForm.controls.email.errors?.required" class="text-danger">User email is required</small>
     </div>
 
     <div class="form-group">
