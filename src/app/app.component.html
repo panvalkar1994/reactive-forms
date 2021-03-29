@@ -15,8 +15,12 @@
     
     <div class="form-group">
       <label>Email</label>
+      <button type="button" (click)="addAletrnateEmails()" class="btn btn-secondary btn-sm m-2">Add Email</button>
       <input formControlName="email" type="email" class="form-control" [class.is-invalid]="email.invalid">
       <small *ngIf="registrationForm.controls.email.errors?.required" class="text-danger">User email is required</small>
+      <div formArrayName="alternateEmails" *ngFor="let email of alternateEmails.controls; let i=index">
+        <input type="text" class="form-control m-1" [formControlName]="i">
+      </div>
     </div>
 
     <div class="form-group">

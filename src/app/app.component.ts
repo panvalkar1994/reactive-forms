@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormArray} from '@angular/forms';
 import { forbiddenNameValidator } from './shared/custom-form.validator';
 import { passwordValidator } from './shared/password.validator';
 
@@ -18,6 +18,13 @@ export class AppComponent implements OnInit{
     return this.registrationForm.controls.email;
   }
 
+  get alternateEmails(){
+    return this.registrationForm.controls.alternateEmails as FormArray;
+  }
+
+  addAletrnateEmails(){
+    this.alternateEmails.push(this.fb.control(''));
+  }
   constructor(private fb:FormBuilder){}
 
   ngOnInit(){
@@ -31,7 +38,8 @@ export class AppComponent implements OnInit{
         city:[''],
         state:[''],
         pincode:['']
-      })
+      }),
+      alternateEmails:this.fb.array([])
     }, {validator:passwordValidator});
 
     this.registrationForm.get('subscribe')?.valueChanges
@@ -48,7 +56,7 @@ export class AppComponent implements OnInit{
   }
 
   loadApiData(){
-    this.registrationForm.setValue({
+    this.registrationForm.patchValue({
       userName :'Bruce',
       password:'test',
       confirmPassword:'test',
