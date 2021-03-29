@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <h1>Registration Form</h1>
 
-  <form [formGroup]="registrationForm">
+  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
 
     <div class="form-group">
       <label>Name</label>
@@ -54,7 +54,7 @@
       <label class="form-control-label">Subscribe</label>
     </div>
 
-    <button class="btn btn-primary" type="submit">Submit</button>
+    <button [disabled]="!registrationForm.valid" class="btn btn-primary" type="submit">Submit</button>
     <button class="btn btn-secondary ml-2" (click)="loadApiData()" type="button" >Load API data</button>
 
   </form>
