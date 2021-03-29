@@ -25,3 +25,6 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Credits
+I would like to thanks [Vishwas and Codevolution](https://github.com/gopinav) for his priceless course on Angular forms. This repo was created as excercise for the video.
