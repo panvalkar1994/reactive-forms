@@ -46,16 +46,6 @@ export class AppComponent implements OnInit{
       })
 
   }
-  // registrationForm = new FormGroup({
-  //   userName: new FormControl(''),
-  //   password:new FormControl(''),
-  //   confirmPassword:new FormControl(''),
-  //   address:new FormGroup({
-  //     city:new FormControl(''),
-  //     state:new FormControl(''),
-  //     pincode:new FormControl('')
-  //   })
-  // });
 
   loadApiData(){
     this.registrationForm.setValue({
