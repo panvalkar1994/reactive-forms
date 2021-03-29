@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray} from '@angular/forms';
+import { RegistrationService } from './registration.service';
 import { forbiddenNameValidator } from './shared/custom-form.validator';
 import { passwordValidator } from './shared/password.validator';
 
@@ -25,7 +26,7 @@ export class AppComponent implements OnInit{
   addAletrnateEmails(){
     this.alternateEmails.push(this.fb.control(''));
   }
-  constructor(private fb:FormBuilder){}
+  constructor(private fb:FormBuilder, private _registrationService:RegistrationService){}
 
   ngOnInit(){
     this.registrationForm = this.fb.group({
@@ -68,5 +69,13 @@ export class AppComponent implements OnInit{
         pincode:'777666'
       }
     });
+  }
+
+  onSubmit(){
+    this._registrationService.register(this.registrationForm.value)
+      .subscribe(
+        response=>console.log(response),
+        error=>console.log(error)
+      )
   }
 }
