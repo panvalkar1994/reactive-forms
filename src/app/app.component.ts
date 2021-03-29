@@ -19,10 +19,7 @@ export class AppComponent {
   });
 
   loadApiData(){
-    this.registrationForm.setValue({
-      userName :'Bruce',
-      password:'test',
-      confirmPassword:'test',
+    this.registrationForm.patchValue({
       address:{
         city:'Gotham',
         state:'Gotham state',
